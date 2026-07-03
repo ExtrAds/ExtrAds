@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExtrAds - Escolha seu Caminho</title>
+    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            background-color: #040d06; /* Fundo verde ultra escuro */
+            color: #fff;
+        }
+
+        /* Container principal em Grid para dividir a tela ao meio */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Logo central substituindo o antigo "OU" */
+        .center-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            background: rgba(4, 13, 6, 0.75); /* Tom escuro combinando com o fundo */
+            backdrop-filter: blur(12px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 2px solid #2bb34b; /* Borda com o verde principal */
+            box-shadow: 0 0 25px rgba(43, 179, 75, 0.3);
+            pointer-events: none; /* Não atrapalha o clique */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center-logo img {
+            height: 45px; /* Altura ideal para a marca no centro */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Estilo comum para os dois lados */
+        .side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            text-align: center;
+        }
+
+        /* Lado do E-commerce - Gradiente sobreposto verde escuro */
+        .ecommerce {
+            background: linear-gradient(rgba(4, 13, 6, 0.65), rgba(4, 13, 6, 0.85)), 
+                        url('https://images.unsplash.com/photo-1563013544-824ae1d704d3?q=80&w=1200') center/cover no-repeat;
+            border-right: 1px solid rgba(43, 179, 75, 0.2);
+        }
+
+        /* Lado do Freelancing - Gradiente sobreposto verde escuro */
+        .freelancing {
+            background: linear-gradient(rgba(4, 13, 6, 0.65), rgba(4, 13, 6, 0.85)), 
+                        url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200') center/cover no-repeat;
+        }
+
+        /* Elementos de texto */
+        .side h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #e6f7eb;
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+
+        .side p {
+            font-size: 1.1rem;
+            max-width: 400px;
+            opacity: 0.75;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: #b3d9bc;
+        }
+
+        /* Botão de Ação estilizado com a nova paleta */
+        .btn {
+            padding: 12px 35px;
+            border: 2px solid #2bb34b;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: transparent;
+            color: #2bb34b;
+            transition: all 0.4s ease;
+        }
+
+        /* Efeitos de Hover (Passar o mouse) */
+        .container:has(.ecommerce:hover) .ecommerce { grid-column: span 1.2; }
+        .container:has(.ecommerce:hover) .freelancing { grid-column: span 0.8; }
+        
+        .container:has(.freelancing:hover) .freelancing { grid-column: span 1.2; }
+        .container:has(.freelancing:hover) .ecommerce { grid-column: span 0.8; }
+
+        /* Destaque interno ao passar o mouse */
+        .side:hover h2 {
+            transform: scale(1.05);
+            color: #4ade80; /* Verde brilhante no texto principal */
+        }
+
+        .side:hover .btn {
+            background: #2bb34b;
+            color: #040d06;
+            box-shadow: 0 0 20px rgba(43, 179, 75, 0.6);
+            border-color: #2bb34b;
+        }
+
+        /* Responsividade para Celulares (Telas verticais) */
+        @media (max-width: 768px) {
+            body, html {
+                overflow: auto;
+            }
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+                height: 100vh;
+            }
+            .side h2 {
+                font-size: 2rem;
+            }
+            .center-logo {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 10px 20px;
+            }
+            .center-logo img {
+                height: 30px;
+            }
+            /* Desativa o efeito de expansão lateral no mobile */
+            .container:has(.ecommerce:hover) .ecommerce,
+            .container:has(.ecommerce:hover) .freelancing,
+            .container:has(.freelancing:hover) .freelancing,
+            .container:has(.freelancing:hover) .ecommerce {
+                grid-column: unset;
+                grid-row: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="center-logo">
+        <img src="Logo-ExtrAds.png" alt="Logo ExtrAds">
+    </div>
+
+    <div class="container">
+        
+        <a href="https://seuecommerce.com" class="side ecommerce">
+            <h2>E-Commerce</h2>
+            <p>Explore nossa loja virtual. Produtos exclusivos, ofertas especiais e entrega rápida direto na sua casa.</p>
+            <div class="btn">Visitar Loja</div>
+        </a>
+
+        <a href="https://seuportfolio.com" class="side freelancing">
+            <h2>Freelancing</h2>
+            <p>Precisa de soluções personalizadas? Conheça meus serviços de desenvolvimento, design e consultoria.</p>
+            <div class="btn">Ver Serviços</div>
+        </a>
+
+    </div>
+
+</body>
+</html>
