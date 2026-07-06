@@ -78,7 +78,7 @@
                         url('https://images.unsplash.com/photo-1563013544-824ae1d704d3?q=80&w=1200') center/cover no-repeat;
         }
 
-        .freelancing {
+        .lojas {
             background: linear-gradient(rgba(4, 13, 6, 0.65), rgba(4, 13, 6, 0.85)), 
                         url('https://images.unsplash.com/photo-1563013544-824ae1d704d3?q=80&w=1200') center/cover no-repeat;
         }
@@ -195,9 +195,9 @@
         }
 
         .container:has(.ecommerce:hover) .ecommerce { grid-column: span 1.2; }
-        .container:has(.ecommerce:hover) .freelancing { grid-column: span 0.8; }
-        .container:has(.freelancing:hover) .freelancing { grid-column: span 1.2; }
-        .container:has(.freelancing:hover) .ecommerce { grid-column: span 0.8; }
+        .container:has(.ecommerce:hover) .hubs { grid-column: span 0.8; }
+        .container:has(.hubs:hover) .hubs { grid-column: span 1.2; }
+        .container:has(.hubs:hover) .ecommerce { grid-column: span 0.8; }
 
         .side:hover h2 {
             transform: scale(1.05);
@@ -254,9 +254,9 @@
             }
             
             .container:has(.ecommerce:hover) .ecommerce,
-            .container:has(.ecommerce:hover) .freelancing,
-            .container:has(.freelancing:hover) .freelancing,
-            .container:has(.freelancing:hover) .ecommerce {
+            .container:has(.ecommerce:hover) .lojas,
+            .container:has(.lojas:hover) .lojas,
+            .container:has(.lojas:hover) .ecommerce {
                 grid-column: unset;
                 grid-row: unset;
             }
@@ -272,7 +272,7 @@
     <div class="container">
         
         <div class="side ecommerce">
-            <h2>E-Commerces</h2>
+            <h2>E-Commercers</h2>
             <p>Explore nossas lojas virtuais. Produtos exclusivos, ofertas especiais e entrega rápida direto na sua casa.</p>
             
             <div class="marketplaces-container">
@@ -282,9 +282,9 @@
             </div>
         </div>
 
-        <div class="side freelancing">
-            <h2>Lojas</h2>
-            <p>Saiba onde estão nossas lojas autônomas no mapa.</p>
+        <div class="side ">
+            <h2>Hubs</h2>
+            <p>Saiba onde estão nossos centros comerciais para pessoas e empresas no mapa.</p>
             <a href="#" class="btn">Em Breve</a>
         </div>
 
